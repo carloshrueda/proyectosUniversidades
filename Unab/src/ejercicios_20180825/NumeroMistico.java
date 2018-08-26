@@ -37,11 +37,12 @@ public class NumeroMistico {
 			letra = nombre.charAt(i); // Se toma cada letra
 			
 			if ((letra >= 'A') && (letra <= 'Z')) { // se valida que sea un caracter alfabetico
-				valletra = ((int) letra - 64); // valor de la letra en entero
+				// valor de la letra en entero
+				valletra = ((int) letra - 64); // igual: nm + ((int) nombre.charAt(i) - 65 + 1); 
 				if (letra > 'N') // la ñ en ingles en el ascii no existe por eso si es mayor que n se suma 1
 					valletra = valletra + 1;
 				
-				nm = nm + valletra; // igual: nm + ((int) nombre.charAt(i) - 65 + 1);
+				nm = nm + valletra; 
 			}
 
 		}
