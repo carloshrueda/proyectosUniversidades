@@ -21,9 +21,9 @@ public class Conversor {
 			num = num / 2;
 			numbin = residuo + numbin;
 		}
-		
-		if (numbin.isEmpty()==true) {
-			numbin= "0";
+
+		if (numbin.isEmpty() == true) {
+			numbin = "0";
 		}
 
 		return numbin;
