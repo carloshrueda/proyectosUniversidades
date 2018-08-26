@@ -27,19 +27,20 @@ import java.util.Scanner;
 public class NumeroMistico {
 
 	public int numeroMistico(String nombre) {
-		// letras: A  B  C  D  E  F  G  H  I  J  K  L  M  N  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
-		//         1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  26 27
+		// letras: A B C D E F G H I J K L M N N O P Q R S T U V W X Y Z
+		// 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
 		int nm = 0;
 		char letra;
 		int valletra;
 
 		for (int i = 0; i <= nombre.length() - 1; i++) {
-			letra = nombre.charAt(i);
-			if ((letra >= 'A') && (letra <= 'Z')) {
+			letra = nombre.charAt(i); // Se toma cada letra
+			
+			if ((letra >= 'A') && (letra <= 'Z')) { // se valida que sea un caracter alfabetico
 				valletra = ((int) letra - 64); // valor de la letra en entero
-				if (letra > 'N') 
+				if (letra > 'N') // la ñ en ingles en el ascii no existe por eso si es mayor que n se suma 1
 					valletra = valletra + 1;
-				System.out.println(letra + " <-> " + valletra);
+				
 				nm = nm + valletra; // igual: nm + ((int) nombre.charAt(i) - 65 + 1);
 			}
 
