@@ -1,5 +1,16 @@
 package ejercicios_20180825;
 
+/*
+ * Calcular el dia de manana
+ * 
+ * Realizar un programa que pida una fecha (ano, mes, dia) y valide si es correcta (si puede existir)
+ * inclusive teniendo encuenta el ano bisiesto
+ * 
+ * El programa debe calcular la fecha siguente. Si la fecha esta mal debe decirlo.
+ * 
+ * El programa deberá correr hasta que el usuario decida lo contrario
+ */
+
 import java.util.Scanner;
 
 public class CalcularDiaSiguiente {
