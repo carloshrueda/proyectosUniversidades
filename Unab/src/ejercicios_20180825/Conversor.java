@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Conversor {
 	
 	public String dec2bin(int num) {
-		return "";
+		return " ";
 	}
 
 	public static void main(String[] args) {
