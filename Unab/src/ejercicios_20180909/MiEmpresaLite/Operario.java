@@ -1,4 +1,4 @@
-package ejercicios_20180909;
+package ejercicios_20180909.MiEmpresaLite;
 
 public class Operario extends Empleado {
 
