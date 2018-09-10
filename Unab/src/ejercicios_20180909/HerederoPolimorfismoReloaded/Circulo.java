@@ -2,7 +2,7 @@ package ejercicios_20180909.HerederoPolimorfismoReloaded;
 
 // fichero Circulo.java
 public class Circulo extends Geometria {
-	static int numCirculos = 0;
+	private static int numCirculos = 0;
 	public static final double PI = 3.14159265358979323846;
 	public double x, y, r;
 
@@ -47,5 +47,14 @@ public class Circulo extends Geometria {
 			return c;
 		else
 			return d;
+	}
+
+	public static int getNumCirculos() {
+		return numCirculos;
+	}
+
+	@Override
+	public String toString() {
+		return "Circulo [x=" + x + ", y=" + y + ", r=" + r + "]";
 	}
 } // fin de la clase Circulo

@@ -13,11 +13,13 @@ class VentanaCerrable extends Frame implements WindowListener {
 	// constructores
 	public VentanaCerrable() {
 		super();
+		//setModalExclusionType(Dialog.ModalExclusionType.NO_EXCLUDE);
 	}
 
 	public VentanaCerrable(String title) {
 		super(title);
-		setSize(800, 800);
+		setSize(800, 600);
+		//setModalExclusionType(Dialog.ModalExclusionType.NO_EXCLUDE);
 		addWindowListener(this);
 	}
 
@@ -31,7 +33,8 @@ class VentanaCerrable extends Frame implements WindowListener {
 	}
 
 	public void windowClosing(WindowEvent e) {
-		System.exit(0);
+		//System.exit(0);
+		this.setVisible(false);
 	}
 
 	public void windowDeactivated(WindowEvent e) {

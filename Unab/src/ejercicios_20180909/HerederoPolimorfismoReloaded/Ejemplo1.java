@@ -26,7 +26,7 @@ class Ejemplo1 {
 		v.add(rg);
 		PanelDibujo mipanel = new PanelDibujo(v);
 		ventana.add(mipanel);
-		ventana.setSize(500, 400);
+		ventana.setSize(800, 600);
 		ventana.setVisible(true);
 		System.out.println("Termina main()...");
 	} // fin de main()

@@ -93,7 +93,7 @@ public class HerederoPolimorfismo {
 			System.out.println("2. Crear Cuadrado");
 			System.out.println("3. Crear Triángulo");
 			System.out.println("0. Volver al menú");
-			System.out.print("\t>>>OPCION [0 - 5]? ");
+			System.out.print("\t>>>OPCION [0 - 3]? ");
 
 			opcion = entrada.nextLine();
 			if (isNumeric(opcion) == true) {
@@ -230,7 +230,7 @@ public class HerederoPolimorfismo {
 			System.out.println("3. Calcular perímetro");
 			System.out.println("4. Comparar áreas de 2 figuras");
 			System.out.println("0. Salir");
-			System.out.print("\t>>>OPCION [0 - 5]? ");
+			System.out.print("\t>>>OPCION [0 - 4]? ");
 
 			opcion = entrada.nextLine();
 			if (isNumeric(opcion) == true) {

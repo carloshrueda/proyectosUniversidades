@@ -24,4 +24,9 @@ public class CirculoGrafico extends Circulo implements Dibujable {
 	public void setPosicion(double x, double y) {
 		;
 	}
+
+	@Override
+	public String toString() {
+		return "Circulo [x=" + x + ", y=" + y + ", r=" + r + ", color=" + color + "]";
+	}
 } // fin de la clase CirculoGrafico

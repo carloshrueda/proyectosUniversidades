@@ -24,4 +24,9 @@ class RectanguloGrafico extends Rectangulo implements Dibujable {
 	public void setPosicion(double x, double y) {
 		; // método vacío, pero necesario de definir
 	}
+
+	@Override
+	public String toString() {
+		return "Rectangulo [x1=" + x1 + ", y1=" + y1 + ", x2=" + x2 + ", y2=" + y2 + ", color=" + color + "]";
+	}
 } // fin de la clase RectanguloGrafico
