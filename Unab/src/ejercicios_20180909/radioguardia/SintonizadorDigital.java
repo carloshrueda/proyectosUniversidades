@@ -28,7 +28,7 @@ public class SintonizadorDigital {
 		boolean salida;
 		Scanner perilla = new Scanner(System.in);
 
-		System.out.println(">>> Uso perilla, presione A para subir, D para bajar frecuencia.");
+		System.out.println(">>> Uso perilla, presione A para bajar, D para subir frecuencia.");
 		System.out.println(">>> Uso perilla, presione Q para salir.\n\n");
 
 		SintonizadorDigital sd = new SintonizadorDigital();
