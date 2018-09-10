@@ -1,7 +1,6 @@
 package ejercicios_20180909.MiEmpresaLite;
 
 import java.util.Vector;
-import java.io.FileInputStream;
 import java.util.Scanner;
 
 public class MiEmpresaLite {
