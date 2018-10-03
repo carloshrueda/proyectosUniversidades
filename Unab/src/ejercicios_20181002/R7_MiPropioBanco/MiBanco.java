@@ -1,29 +1,40 @@
 package ejercicios_20181002.R7_MiPropioBanco;
 
+import java.util.ArrayList;
+
 public class MiBanco {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	private static long numcuenta;
+	private ArrayList<Cuenta> listCuentas;
+	
+	public MiBanco() {
+		numcuenta= 1;
+		listCuentas = new ArrayList<Cuenta>();
 	}
 
+	public static long getNumcuenta() {
+		return numcuenta;
+	}
+
+	public ArrayList<Cuenta> getListCuentas() {
+		return listCuentas;
+	}
+
+	/*private static void setNumcuenta(int numcuenta) {
+		MiBanco.numcuenta = numcuenta;
+	}
+
+	private void setListCuentas(ArrayList<Cuenta> listCuentas) {
+		this.listCuentas = listCuentas;
+	}*/
+	
+	private long nuevoNumCuenta() {
+		numcuenta = numcuenta + 1;
+		return numcuenta;
+	}
+	
+	public void agregarCuenta(String nomCliente, long saldo) {
+		listCuentas.add(new Cuenta(nomCliente, saldo, nuevoNumCuenta()));
+	}
 }
 
 
-/* R7: MI PROPIO BANCO
-
-Realiza un programa que me permita simular un banco manejando clientes y sus cuentas,
-mediante un menú así:
-1. Ver lista de clientes: Lista de los nombre de lso clientes y número de
-   cuenta, los números de cuenta los controla el sistema y son consecutivos
-2. Ver saldo de un cliente a partir de su numero de cuenta
-3. Crear un cliente con nombre y saldo inicial
-4. Editar el nombre de un cliente. a partir de un listado de clientes
-5. Depositar dinero a una cuenta (antes de confirmar el depósito mostrar 
-   de que cliente es la cuenta))
-6. Retirar dinero de una cuenta (no puede retirar más dinero del que hay)
-7 Cancelar una cuenta: Eliminar una cuenta y al cliente. Debe emitir un 
-  cheque por el saldo de la cuenta antes de cancelarla (mostrar un
-  mensaje en pantalla)
-8. Salir del banco.
-*/
