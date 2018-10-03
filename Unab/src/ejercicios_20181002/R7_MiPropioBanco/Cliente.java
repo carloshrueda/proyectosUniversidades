@@ -2,7 +2,7 @@ package ejercicios_20181002.R7_MiPropioBanco;
 
 public class Cliente {
 	private String nombre;
-	
+
 	public Cliente() {
 		this.nombre = "";
 	}

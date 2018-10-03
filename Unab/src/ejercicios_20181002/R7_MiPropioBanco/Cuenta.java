@@ -4,13 +4,13 @@ public class Cuenta {
 	private Cliente cliente;
 	private long numcuenta;
 	private long saldo;
-	
+
 	public Cuenta() {
 		this.cliente = new Cliente();
 		this.numcuenta = -1;
-		this.saldo= 0;
+		this.saldo = 0;
 	}
-	
+
 	public Cuenta(Cliente cliente, long numcuenta, long saldo) {
 		this.cliente = cliente;
 		this.numcuenta = numcuenta;
@@ -26,12 +26,15 @@ public class Cuenta {
 	public Cliente getCliente() {
 		return cliente;
 	}
+
 	public long getNumcuenta() {
 		return numcuenta;
 	}
+
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
 	public void setNumcuenta(long numcuenta) {
 		this.numcuenta = numcuenta;
 	}
@@ -43,7 +46,11 @@ public class Cuenta {
 	public void setSaldo(long saldo) {
 		this.saldo = saldo;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Datos de la Cuenta: \n   Numero de Cuenta: " + numcuenta + "\n   Cliente: " + cliente.getNombre()
+				+ "\n   Saldo: $" + saldo + "\n";
+	}
 
 }
