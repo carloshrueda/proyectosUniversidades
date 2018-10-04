@@ -48,4 +48,14 @@ public class MiBanco {
 
 		return cuenta;
 	}
+	
+	public boolean hayCuentas() {
+		return (getListCuentas().size() > 0);
+	}
+
+	public void eliminarCuenta(Cuenta cuenta) {
+		if (hayCuentas()) {
+			getListCuentas().remove(cuenta);
+		}
+	}
 }

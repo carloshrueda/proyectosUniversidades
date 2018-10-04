@@ -207,22 +207,40 @@ public class MiBancoProgram {
 
 		InterfazUtilidades.tituloMenu("7. Cancelar Cuenta");
 
-		do {
-			System.out.print("Número de Cuenta? ");
-			snumcuenta = teclado.nextLine().trim();
-			if ((isnum = InterfazUtilidades.isNumeric(snumcuenta)) == true) {
-				lnumcuenta = Integer.parseInt(snumcuenta);
-			}
-		} while ((isnum == false) || (lnumcuenta < 0)); // haga mientras el numcuenta no sea numérico o sea negativo
-
-		Cuenta cuenta = null;
-		if ((cuenta = mb.buscarCuenta(lnumcuenta)) != null) {
-
+		if (mb.hayCuentas() == false) {
+			System.out.println("\n>>> No existen cuentas en el banco.");
+			
 		} else {
-			System.out.println("No existe Cliente con ese número de cuenta.");
+			do {
+				System.out.print("Número de Cuenta? ");
+				snumcuenta = teclado.nextLine().trim();
+				if ((isnum = InterfazUtilidades.isNumeric(snumcuenta)) == true) {
+					lnumcuenta = Integer.parseInt(snumcuenta);
+				}
+			} while ((isnum == false) || (lnumcuenta < 0)); // haga mientras el numcuenta no sea numérico o sea negativo
+
+			Cuenta cuenta = null;
+			if ((cuenta = mb.buscarCuenta(lnumcuenta)) != null) {
+				if (cuenta.getSaldo() > 0) {
+					// Si tiene saldo emitir un cheque
+					System.out.println("\n-------------------------------------------------------------------");
+					System.out.println(">>> Emisión del cheque de cancelación de cuenta. <<<");
+					System.out.println(
+							"Cuenta No.: " + cuenta.getNumcuenta() + "\t\t Saldo Cuenta: " + cuenta.getSaldo());
+					System.out.println("Cliente.: " + cuenta.getCliente().getNombre());
+					System.out.println("-------------------------------------------------------------------");
+				}
+
+				mb.eliminarCuenta(cuenta);
+
+			} else {
+				System.out.println("No existe Cliente con ese número de cuenta.");
+			}
+			
+			System.out.println("\n>>> La cuenta ha sido cancelada");
 		}
 
-		System.out.println("\n>>> La cuenta ha sido cancelada. \nPresione cualquier tecla para continuar....");
+		System.out.println("Presione cualquier tecla para continuar....");
 		teclado.nextLine();
 	}
 
