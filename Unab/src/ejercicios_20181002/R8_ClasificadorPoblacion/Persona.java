@@ -63,4 +63,10 @@ public class Persona {
 		this.sexo = sexo;
 	}
 
+	@Override
+	public String toString() {
+		return "Nombre: " + nombre + "\nDireccion: " + direccion + "\nTelefono: " + telefono + "\nEdad: " + edad
+				+ "\nSexo: " + sexo;
+	}
+
 }

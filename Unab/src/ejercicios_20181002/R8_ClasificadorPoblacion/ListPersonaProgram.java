@@ -100,7 +100,7 @@ public class ListPersonaProgram {
 
 		System.out.println("Número de personas: " + lstper.cantPersonas());
 
-		System.out.println("\n>>> Fin lista de población. \nPresione cualquier tecla para continuar....");
+		System.out.println("\n>>> Fin cantidad de personas. \nPresione cualquier tecla para continuar....");
 		teclado.nextLine();
 	}
 
@@ -129,6 +129,165 @@ public class ListPersonaProgram {
 
 		}
 
+		System.out.println("\n>>> Fin lista de población por nombre. \nPresione cualquier tecla para continuar....");
+		teclado.nextLine();
+	}
+
+	private static void buscarPersonaRangoEdad(Scanner teclado, ListPersonas lstper) {
+		String sedadIni = "";
+		String sEdadFin = "";
+		short edadIni = Short.MIN_VALUE;
+		short edadFin = Short.MIN_VALUE;
+		boolean isnum = false;
+
+		InterfazUtilidades.tituloMenu("5. Buscar Persona por Rango Edad");
+
+		do {
+			do {
+				System.out.print("Límite Edad inicial? ");
+				isnum = false;
+				sedadIni = teclado.nextLine().trim();
+				if ((isnum = InterfazUtilidades.isNumeric(sedadIni)) == true) {
+					edadIni = Short.parseShort(sedadIni);
+				} else {
+					System.out.println(">>> La edad debe ser numérico [1 - 130].\n");
+				}
+				if ((isnum == true) && ((edadIni < 0) || (edadIni > 130))) {
+					System.out.println(">>> La edad debe ser numérico [1 - 130].\n");
+				}
+
+			} while ((isnum == false) || (edadIni < 0) || (edadIni > 130)); // haga mientras el edad no sea numérico o
+																			// no
+																			// este entre 1 - 130
+
+			do {
+				System.out.print("Límite Edad final? ");
+				isnum = false;
+				sEdadFin = teclado.nextLine().trim();
+				if ((isnum = InterfazUtilidades.isNumeric(sEdadFin)) == true) {
+					edadFin = Short.parseShort(sEdadFin);
+				} else {
+					System.out.println(">>> La edad debe ser numérico [1 - 130].\n");
+				}
+				if ((isnum == true) && ((edadFin < 0) || (edadFin > 130))) {
+					System.out.println(">>> La edad debe ser numérico [1 - 130].\n");
+				}
+
+			} while ((isnum == false) || (edadFin < 0) || (edadFin > 130)); // haga mientras el edad no sea numérico o
+																			// no
+																			// este entre 1 - 130
+
+			if (edadIni > edadFin) {
+				System.out
+						.println(">>> La edad Inicial es mayor que la edad Final. \n>>> Ingrese los datos nuevamente.");
+			}
+		} while (edadIni > edadFin);
+
+		ArrayList<Persona> lstperenc = lstper.buscarPersonaRangoEdad(edadIni, edadFin);
+		System.out.println("\nPersonas encontradas: " + lstperenc.size());
+		if (lstperenc.size() > 0) {
+			System.out.println("NOMBRE\t\t| EDAD");
+			System.out.println("-------------------------------------");
+			int cont = 0;
+			for (Persona persona : lstperenc) {
+				System.out.println(++cont + ". " + persona.getNombre() + "\t\t" + persona.getEdad());
+			}
+
+		}
+		System.out.println("\n>>> Fin lista de población por edad. \nPresione cualquier tecla para continuar....");
+		teclado.nextLine();
+	}
+
+	private static void buscarPersonaMasVieja(Scanner teclado, ListPersonas lstper) {
+		InterfazUtilidades.tituloMenu("6. Persona Más Vieja");
+
+		System.out.println("Persona de mayor edad del listado: ");
+		System.out.println("--------------------------------------------");
+		System.out.println(lstper.getPersonaMasVieja().toString());
+		System.out.println("--------------------------------------------");
+
+		System.out.println("\n>>> Fin listado persona más vieja. \nPresione cualquier tecla para continuar....");
+		teclado.nextLine();
+	}
+
+	private static void buscarPersonaMasJoven(Scanner teclado, ListPersonas lstper) {
+		InterfazUtilidades.tituloMenu("7. Persona Más Joven");
+
+		System.out.println("Persona de menor edad del listado: ");
+		System.out.println("--------------------------------------------");
+		System.out.println(lstper.getPersonaMasJoven().toString());
+		System.out.println("--------------------------------------------");
+
+		System.out.println("\n>>> Fin listado persona más joven. \nPresione cualquier tecla para continuar....");
+		teclado.nextLine();
+	}
+
+	private static void mostrarPromEdadPoblacion(Scanner teclado, ListPersonas lstper) {
+		InterfazUtilidades.tituloMenu("8. Promedio Edad Poblacion");
+
+		System.out.println("Promedio de edad de la población: ");
+		System.out.println("--------------------------------------------");
+		System.out.println("Promedio: " + lstper.getPromEdad());
+		System.out.println("--------------------------------------------");
+
+		System.out.println("\n>>> Fin promedio edad. \nPresione cualquier tecla para continuar....");
+		teclado.nextLine();
+	}
+
+	private static void mostrarPromEdadMujeres(Scanner teclado, ListPersonas lstper) {
+		InterfazUtilidades.tituloMenu("9. Promedio Edad Mujeres");
+
+		System.out.println("Promedio de edad de las mujeres: ");
+		System.out.println("--------------------------------------------");
+		System.out.println("Promedio: " + lstper.getPromEdadMujeres());
+		System.out.println("--------------------------------------------");
+
+		System.out.println("\n>>> Fin promedio edad mujeres. \nPresione cualquier tecla para continuar....");
+		teclado.nextLine();
+	}
+
+	private static void mostrarPromEdadHombres(Scanner teclado, ListPersonas lstper) {
+		InterfazUtilidades.tituloMenu("10. Promedio Edad Hombres");
+
+		System.out.println("Promedio de edad de las hombres: ");
+		System.out.println("--------------------------------------------");
+		System.out.println("Promedio: " + lstper.getPromEdadHombres());
+		System.out.println("--------------------------------------------");
+
+		System.out.println("\n>>> Fin promedio edad hombres. \nPresione cualquier tecla para continuar....");
+		teclado.nextLine();
+	}
+
+	private static void listarPoblacionMujeres(Scanner teclado, ListPersonas lstper) {
+		InterfazUtilidades.tituloMenu("11. Mostrar Mujeres de la Población");
+
+		System.out.println("NOMBRE\t\t| EDAD");
+		System.out.println("-------------------------------------");
+		if (lstper.getListMujeres().size() > 0) {
+			int cont = 0;
+			for (Persona persona : lstper.getListMujeres()) {
+				System.out.println(++cont + ". " + persona.getNombre() + "\t\t" + persona.getEdad());
+			}
+
+		}
+
+		System.out.println("\n>>> Fin lista de población. \nPresione cualquier tecla para continuar....");
+		teclado.nextLine();
+	}
+
+	private static void listarPoblacionHombres(Scanner teclado, ListPersonas lstper) {
+		InterfazUtilidades.tituloMenu("12. Mostrar Hombres de la Población");
+
+		System.out.println("NOMBRE\t\t| EDAD");
+		System.out.println("-------------------------------------");
+		if (lstper.getListHombres().size() > 0) {
+			int cont = 0;
+			for (Persona persona : lstper.getListHombres()) {
+				System.out.println(++cont + ". " + persona.getNombre() + "\t\t" + persona.getEdad());
+			}
+
+		}
+
 		System.out.println("\n>>> Fin lista de población. \nPresione cualquier tecla para continuar....");
 		teclado.nextLine();
 	}
@@ -145,7 +304,7 @@ public class ListPersonaProgram {
 							" 3. Cantidad de Personas en Población", " 4. Buscar Persona por Nombre",
 							" 5. Buscar Persona por Rango Edad", " 6. Persona Más Vieja", " 7. Persona Más Joven",
 							" 8. Promedio Edad Poblacion", " 9. Promedio Edad Mujeres", " 10. Promedio Edad Hombres",
-							"11. Mostrar Mujeres del Población", "12. Mostrar Hombres del Población", "13. Salir" },
+							"11. Mostrar Mujeres de la Población", "12. Mostrar Hombres de la Población", "13. Salir" },
 					1, 13);
 
 			switch (opcion) {
@@ -164,13 +323,38 @@ public class ListPersonaProgram {
 				buscarPersonaNombre(teclado, lstper);
 				break;
 
-			/*
-			 * case 5: depositarDineroCuenta(teclado, lstper); break;
-			 * 
-			 * case 6: retirarDineroCuenta(teclado, lstper); break;
-			 * 
-			 * case 7: cancelarCuenta(teclado, lstper); break;
-			 */
+			case 5:
+				buscarPersonaRangoEdad(teclado, lstper);
+				break;
+
+			case 6:
+				buscarPersonaMasVieja(teclado, lstper);
+				break;
+
+			case 7:
+				buscarPersonaMasJoven(teclado, lstper);
+				break;
+
+			case 8:
+				mostrarPromEdadPoblacion(teclado, lstper);
+				break;
+
+			case 9:
+				mostrarPromEdadMujeres(teclado, lstper);
+				break;
+
+			case 10:
+				mostrarPromEdadHombres(teclado, lstper);
+				break;
+				
+			case 11:
+				listarPoblacionMujeres(teclado, lstper);
+				break;
+				
+			case 12:
+				listarPoblacionHombres(teclado, lstper);
+				break;
+
 			default:
 				break;
 			}
