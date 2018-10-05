@@ -69,45 +69,45 @@ public class Inventario {
 
 		return existenciasLibro;
 	}
-	
+
 	public ArrayList<Libro> librosMasCaros() {
 		ArrayList<Libro> listresult = new ArrayList<Libro>();
-		
-		//ordena los libros por el codigo de mayor a menor
+
+		// ordena los libros por el codigo de mayor a menor
 		Collections.sort(listLibros, new Comparator<Libro>() {
-		    @Override
-		    public int compare(Libro o1, Libro o2) {
-		    	if (o1.getCodigo() > o2.getCodigo()) {
+			@Override
+			public int compare(Libro o1, Libro o2) {
+				if (o1.getCodigo() > o2.getCodigo()) {
 					return -1;
 				}
 				if (o1.getCodigo() < o2.getCodigo()) {
 					return 1;
 				}
 				return 0;
-		    }
+			}
 		});
-		
-		/*Collections.sort(listLibros, new Comparator<Libro>() {
-		    @Override
-		    public int compare(Libro o1, Libro o2) {
-		        return new Integer(o1.getCodigo()).compareTo(o2.getCodigo());
-		    }
-		});
-		
-		Collections.sort(listLibros, (o1, o2) -> new Integer(o1.getCodigo()).compareTo(o2.getCodigo()));
-		*/
-		
+
+		/*
+		 * Collections.sort(listLibros, new Comparator<Libro>() {
+		 * 
+		 * @Override public int compare(Libro o1, Libro o2) { return new
+		 * Integer(o1.getCodigo()).compareTo(o2.getCodigo()); } });
+		 * 
+		 * Collections.sort(listLibros, (o1, o2) -> new
+		 * Integer(o1.getCodigo()).compareTo(o2.getCodigo()));
+		 */
+
 		int cont = 0;
 		for (Libro libro : listLibros) {
 			listresult.add(libro);
 			++cont;
 			if (cont == 3) {
-				//solo agrega 3 libros mas caros
+				// solo agrega 3 libros mas caros
 				break;
 			}
-			
+
 		}
-		
+
 		return listresult;
 	}
 
