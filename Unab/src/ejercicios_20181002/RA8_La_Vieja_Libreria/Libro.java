@@ -19,8 +19,16 @@ public class Libro {
 		this.codigo = codigo;
 		this.titulo = titulo;
 		this.autor = autor;
-		this.precio = precio;
-		this.existencias = existencias;
+		if (precio > 0) {
+			this.precio = precio;
+		} else {
+			this.precio = 0;
+		}
+		if (existencias > 0) {
+			this.existencias = existencias;
+		} else {
+			this.precio = 0;
+		}
 	}
 
 	public int getCodigo() {
@@ -66,15 +74,15 @@ public class Libro {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("DATOS DEL LIBRO:\n Codigo=");
+		builder.append("DATOS DEL LIBRO:\n Codigo: ");
 		builder.append(codigo);
-		builder.append("\n Título=");
+		builder.append("\n Título: ");
 		builder.append(titulo);
-		builder.append("\n Autor=");
+		builder.append("\n Autor: ");
 		builder.append(autor);
-		builder.append("\n Precio=");
+		builder.append("\n Precio: ");
 		builder.append(precio);
-		builder.append("\n Existencias=");
+		builder.append("\n Existencias: ");
 		builder.append(existencias);
 
 		return builder.toString();
