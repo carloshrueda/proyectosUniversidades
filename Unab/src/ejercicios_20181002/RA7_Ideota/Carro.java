@@ -1,4 +1,4 @@
-package Compras;
+package ejercicios_20181002.RA7_Ideota;
 
 import java.util.Arrays;
 
