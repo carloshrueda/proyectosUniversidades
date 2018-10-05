@@ -9,8 +9,6 @@ public class Entrada {
 		BufferedReader teclado = new BufferedReader(flujo);
 		try {
 			buzon = teclado.readLine();
-			teclado.close();
-			flujo.close();
 		} catch (Exception e) {
 			System.out.append("Entrada incorrecta)");
 		}

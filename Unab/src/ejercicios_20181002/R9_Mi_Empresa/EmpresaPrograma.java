@@ -314,7 +314,7 @@ public class EmpresaPrograma {
 
 	public static void calcularNomina(Empresa empresa) {
 		InterfazUtilidades.tituloMenu("11. Calcular Nómina de Empleados");
-		
+
 		System.out.println("Valor de la nómina: " + empresa.calcularNomina());
 
 		System.out.println("\n>>> Fin Cálculo de Nómina de Empleados. \nPresione cualquier tecla para continuar....");

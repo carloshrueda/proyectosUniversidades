@@ -5,7 +5,7 @@ package ejercicios_20181002.RA7_Ideota;
  *
  * @author ESTUDIANTE
  */
-public class TestFruta {
+public class CarroPrograma {
 
 	public static void agregarFrutaCarrito(Carro carrito) {
 		InterfazUtilidades.tituloMenu("1. Agregar Fruta al Carrito de Compras");
@@ -16,7 +16,7 @@ public class TestFruta {
 			System.out.println(++cont + ". " + fruta.name());
 		}
 
-		//int maxfruta = TipoFruta.values().length;
+		// int maxfruta = TipoFruta.values().length;
 		System.out.println("\nQue fruta de las disponibles desea agregar (1, " + cont + ")? ");
 		int opcion = Entrada.entero();
 		if ((opcion < 1) || (opcion > cont)) {
@@ -31,19 +31,19 @@ public class TestFruta {
 		case 0:
 			carrito.addFruta(new Papaya());
 			break;
-			
+
 		case 1:
 			carrito.addFruta(new Kiwi());
 			break;
-			
+
 		case 2:
 			carrito.addFruta(new Mango());
 			break;
-			
+
 		case 3:
 			carrito.addFruta(new Banano());
 			break;
-			
+
 		case 4:
 			carrito.addFruta(new Naranja());
 			break;
@@ -56,7 +56,7 @@ public class TestFruta {
 				"\n>>> Fin Agregar Fruta al Carrito de Compras. \nPresione cualquier tecla para continuar....");
 		Entrada.cadena();
 	}
-	
+
 	public static void listarFrutasCarrito(Carro carrito) {
 		InterfazUtilidades.tituloMenu("2. Listar Frutas del Carrito de Compras");
 
@@ -65,8 +65,27 @@ public class TestFruta {
 			System.out.println(fruta.getNombre());
 		}
 
+		System.out.println("\n>>> Fin Listado del Carrito de Compras. \nPresione cualquier tecla para continuar....");
+		Entrada.cadena();
+	}
+
+	public static void totalCaloriasCarrito(Carro carrito) {
+		InterfazUtilidades.tituloMenu("3. Total Calorias del Carrito de Compras");
+
+		System.out.println("El total de las calorias del carrito de compras es: " + carrito.getCaloriasTotal());
+
 		System.out.println(
-				"\n>>> Fin Listado del Carrito de Compras. \nPresione cualquier tecla para continuar....");
+				"\n>>> Fin Total Calorias del Carrito de Compras. \nPresione cualquier tecla para continuar....");
+		Entrada.cadena();
+	}
+	
+	public static void totalPrecioCarrito(Carro carrito) {
+		InterfazUtilidades.tituloMenu("4. Calcular Precio del Carrito de Compras");
+
+		System.out.println("El Precio Total del Carrito de Compras es: " + carrito.getPrecioTotal());
+
+		System.out.println(
+				"\n>>> Fin Precio Total del Carrito de Compras. \nPresione cualquier tecla para continuar....");
 		Entrada.cadena();
 	}
 
@@ -77,8 +96,7 @@ public class TestFruta {
 		do {
 			opcion = InterfazUtilidades.Menu("SUPERMERCA FRUTAS",
 					new String[] { " 1. Agregar Fruta al Carrito de Compras",
-							" 2. Listar Frutas del Carrito de Compras",
-							" 3. Listar Total Calorias del Carrito de Compras",
+							" 2. Listar Frutas del Carrito de Compras", " 3. Total Calorias del Carrito de Compras",
 							" 4. Calcular Precio del Carrito de Compras", " 5. Salir" },
 					1, 5);
 
@@ -87,32 +105,19 @@ public class TestFruta {
 			case 1:
 				agregarFrutaCarrito(carrito);
 				break;
-				
+
 			case 2:
 				listarFrutasCarrito(carrito);
 				break;
 
-			/*
-			 * case 2: listarCargos(empresa); break;
-			 * 
-			 * case 3: editarNombreCargo(empresa); break;
-			 * 
-			 * case 4: editarSueldoCargo(empresa); break;
-			 * 
-			 * case 5: reorganizarJerarquia(empresa); break;
-			 * 
-			 * case 6: agregarEmpleado(empresa); break;
-			 * 
-			 * case 7: listarEmpleadoCargo(empresa); break;
-			 * 
-			 * case 8: editarNombreEmpleado(empresa); break;
-			 * 
-			 * case 9: buscarEmpleadoCargoParteNombre(empresa); break;
-			 * 
-			 * case 10: listarEmpleadoCargoNombre(empresa); break;
-			 * 
-			 * case 11: calcularNomina(empresa); break;
-			 */
+			case 3:
+				totalCaloriasCarrito(carrito);
+				break;
+				
+			case 4:
+				totalPrecioCarrito(carrito);
+				break;
+
 			default:
 				break;
 			}
