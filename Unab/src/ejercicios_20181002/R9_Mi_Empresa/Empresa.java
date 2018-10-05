@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import ejercicios_20181002.RA8_La_Vieja_Libreria.Libro;
-
 public class Empresa {
 	private static int nivelJerarquia;
 	private ArrayList<Cargo> listCargos;
@@ -94,21 +92,38 @@ public class Empresa {
 		// ordena los libros por el codigo de mayor a menor
 		Collections.sort(listEmpleadosOrdenada, new Comparator<Empleado>() {
 			@Override
+			/*
+			 * public int compare(Empleado o1, Empleado o2) { //primero comparo por el
+			 * nombre del cargo int resultado =
+			 * o1.getCargo().getNombre().compareTo(o2.getCargo().getNombre()); if (resultado
+			 * != 0 ) { //Si no es igual devuelvo el resultado return resultado; }
+			 * 
+			 * // Si el nombre del cargo es igual, comparo por el nombre del empleado
+			 * resultado = o1.getNombre().compareTo(o2.getNombre()); return resultado; }
+			 */
+
 			public int compare(Empleado o1, Empleado o2) {
-				//primero comparo por el nombre del cargo
-				int resultado = o1.getCargo().getNombre().compareTo(o2.getCargo().getNombre());
-				if (resultado != 0 ) {
-					//Si no es igual devuelvo el resultado
-                    return resultado;
-                }
-				
-				// Si el nombre del cargo es igual, comparo por el nombre del empleado
-				resultado = o1.getNombre().compareTo(o2.getNombre());
+				// concateno el nombre del cargo con el nombre del empleado y lo comparo con el
+				// otro objeto
+				int resultado = (o1.getCargo().getNombre() + " " + o1.getNombre())
+						.compareTo(o2.getCargo().getNombre() + " " + o2.getNombre());
 				return resultado;
+
 			}
+
 		});
 
 		return listEmpleadosOrdenada;
+	}
+
+	public int calcularNomina() {
+		int nomina = 0;
+
+		for (Empleado e : listEmpleados) {
+			nomina += e.getCargo().getSueldo();
+		}
+
+		return nomina;
 	}
 
 }

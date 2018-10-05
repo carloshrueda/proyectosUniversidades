@@ -1,5 +1,7 @@
 package ejercicios_20181002.R9_Mi_Empresa;
 
+import java.util.ArrayList;
+
 //import java.util.Scanner;
 
 public class EmpresaPrograma {
@@ -297,8 +299,25 @@ public class EmpresaPrograma {
 	public static void listarEmpleadoCargoNombre(Empresa empresa) {
 		InterfazUtilidades.tituloMenu("10. Listar Empleados Ordenada por Cargo y Nombre");
 
+		System.out.println("CARGO\t | NOMBRE");
+		System.out.println("---------------------------------------------------");
+
+		ArrayList<Empleado> listEmpleadosOrdenada = empresa.ordenarCargoNombre();
+		for (Empleado empleado : listEmpleadosOrdenada) {
+			System.out.println(empleado.getCargo().getNombre() + "\t " + empleado.getNombre());
+		}
+
 		System.out.println(
 				"\n>>> Fin Listado Empleados Ordenada por Cargo y Nombre. \nPresione cualquier tecla para continuar....");
+		Entrada.cadena();
+	}
+
+	public static void calcularNomina(Empresa empresa) {
+		InterfazUtilidades.tituloMenu("11. Calcular Nómina de Empleados");
+		
+		System.out.println("Valor de la nómina: " + empresa.calcularNomina());
+
+		System.out.println("\n>>> Fin Cálculo de Nómina de Empleados. \nPresione cualquier tecla para continuar....");
 		Entrada.cadena();
 	}
 
@@ -313,7 +332,7 @@ public class EmpresaPrograma {
 							" 4. Editar Sueldo de Cargo", " 5. Reorganizar Jerarquía", " 6. Agregar Empleado",
 							" 7. Listar Empleados por Cargo", " 8. Editar Nombre Empleado",
 							" 9. Buscar Empleado por Cargo y parte de su Nombre",
-							"10. Listar Empleados Ordenada por Cargo y Nombre", "11. Calcular Nómina de Empleado",
+							"10. Listar Empleados Ordenada por Cargo y Nombre", "11. Calcular Nómina de Empleados",
 							"12. Salir" },
 					1, 12);
 
@@ -356,6 +375,10 @@ public class EmpresaPrograma {
 
 			case 10:
 				listarEmpleadoCargoNombre(empresa);
+				break;
+
+			case 11:
+				calcularNomina(empresa);
 				break;
 
 			default:
