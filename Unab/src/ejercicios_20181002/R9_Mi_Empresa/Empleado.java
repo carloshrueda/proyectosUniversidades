@@ -10,7 +10,6 @@ public class Empleado {
 	}
 
 	public Empleado(String nombre, Cargo cargo) {
-		super();
 		this.nombre = nombre;
 		this.cargo = cargo;
 	}
